@@ -1,4 +1,3 @@
-using PlotlyJS
 
 using Colors
 
@@ -26,8 +25,8 @@ function set_figure_style!(p; title = "", ylabel = "", xlabel ="")
         height=400
     )
 end
-plotScan(mol::moleculeInteraction, sol_vec; stateOI = [nothing, nothing, nothing], units = "K", maxDisplay = 300) = plotScan(PlotlyJS.plot(), mol::moleculeInteraction, sol_vec; stateOI = stateOI, units = units, maxDisplay = maxDisplay)
-function plotScan(p::PlotlyJS.SyncPlot, mol::moleculeInteraction, sol_vec; stateOI = [nothing, nothing, nothing], units = "K", maxDisplay = 300)
+plotScan(mol::moleculeInteraction, sol_vec; stateOI = [nothing, nothing, nothing], units = "K", maxDisplay = 300) = plotScan(plot(), mol::moleculeInteraction, sol_vec; stateOI = stateOI, units = units, maxDisplay = maxDisplay)
+function plotScan(p, mol::moleculeInteraction, sol_vec; stateOI = [nothing, nothing, nothing], units = "K", maxDisplay = 300)
     yConv = Dict("K"=> 1/1e6, "uK" => 1)
 
     xlabel = ["E-Field (V/cm)","R (a0)"]
@@ -78,7 +77,7 @@ function plotScan(p::PlotlyJS.SyncPlot, mol::moleculeInteraction, sol_vec; state
     
     #p = PlotlyJS.plot()
     for state in filteredStateOI
-        PlotlyJS.addtraces!(p, PlotlyJS.scatter(x = x_var[x_varOI, :]/conv[x_varOI], y = [sol_i.val[state] for sol_i in sol_vec]*yConv[units], text=[KetName(sol_i.vec[:, state], basisUC_Full, QMorder = [6, 5, 4, 3, 2, 1]) for sol_i in sol_vec], name = "State $state"))
+        addtraces!(p, scatter(x = x_var[x_varOI, :]/conv[x_varOI], y = [sol_i.val[state] for sol_i in sol_vec]*yConv[units], text=[KetName(sol_i.vec[:, state], basisUC_Full, QMorder = [6, 5, 4, 3, 2, 1]) for sol_i in sol_vec], name = "State $state"))
     end
     set_figure_style!(p, title = "Energy Spectrum", xlabel = xlabel[x_varOI], ylabel = "Energy ($(units))")
     p
