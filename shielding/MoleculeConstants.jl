@@ -14,6 +14,7 @@ DebyeSI = 3.33564e-30
 
 Rb87Cs133 = Dict(
     "Name" => "Rb87Cs133",
+    "redMass" => (132.9054 + 86.909184)*amu/2,
     "d0" => 1.225 * DebyeSI,
     "Sym" => 0,
     "Brot" => 490.173994326310e6 * h,
@@ -24,6 +25,7 @@ Rb87Cs133 = Dict(
 # K41Cs133 Constants
 K41Cs133 = Dict(
     "Name" => "K41Cs133",
+    "redMass" => (40.96182526 + 132.9054)*amu/2,
     "Sym" => 0,
     "d0" => 1.84 * DebyeSI,
     "Brot" => 880.326e6 * h,
@@ -35,7 +37,8 @@ K41Cs133 = Dict(
 # K40Rb87 Constants
 K40Rb87 = Dict(
     "Name" => "K40Rb87",
-    "Sym" => 0,
+    "redMass" => (39.96399848 + 86.909184)*amu/2,
+    "Sym" => 1,
     "d0" => 0.566 * DebyeSI,
     "Brot" => 1113.950e6 * h,
     "Drot" => 0 * h,
@@ -46,6 +49,7 @@ K40Rb87 = Dict(
 
 K40Rb87T = Dict(
     "Name" => "K40Rb87_Till",
+    "redMass" => (39.96399848 + 86.909184)*amu/2,
     "Sym" => 1,
     "d0" => 0.573999 * DebyeSI,
     "Brot" => 1113.9514e6 * h,
@@ -70,7 +74,8 @@ Na23Cs133 = Dict(
 # Na23K40 Constants
 Na23K40 = Dict(
     "Name" => "Na23K40",
-    "Sym" => 0,
+    "Sym" => 1,
+    "redMass" => (22.98977 + 39.96399848)*amu/2,
     "d0" => 2.72 * DebyeSI,
     "Brot" => 2.8217297e9 * h,
     "Drot" => 0 * h,
@@ -82,6 +87,7 @@ Na23K40 = Dict(
 Na23Rb87 = Dict(
     "Name" => "Na23Rb87",
     "Sym" => 0,
+    "redMass" => (22.98977 + 86.909184)*amu/2,
     "d0" => 3.2 * DebyeSI,
     "Brot" => 2.0896628e9 * h,
     "Drot" => 0 * h,
